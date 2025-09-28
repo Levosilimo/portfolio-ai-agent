@@ -1,0 +1,94 @@
+{
+  "name": "portfolio-ai-agent",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AI-Agent Portfolio – Effortless, customizable, and professional developer portfolio powered by Next.js, React, Tailwind, and AI. Configure once with JSON, deploy anywhere.",
+  "author": "Lev Sylin <silin.lev@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/levosilimo/portfolio-ai-agent",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/levosilimo/portfolio-ai-agent.git"
+  },
+  "bugs": {
+    "url": "https://github.com/levosilimo/portfolio-ai-agent/issues"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "format": "prettier --write .",
+    "type-check": "tsc --noEmit",
+    "prepare": "husky install",
+    "clean": "rm -rf .next node_modules dist public/cache"
+  },
+  "dependencies": {
+    "@ai-sdk/google": "^2.0.14",
+    "@ai-sdk/react": "^2.0.46",
+    "@radix-ui/react-avatar": "^1.1.10",
+    "@radix-ui/react-collapsible": "^1.1.12",
+    "@radix-ui/react-icons": "^1.3.2",
+    "@radix-ui/react-separator": "^1.1.7",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-tooltip": "^1.2.8",
+    "@types/node-fetch": "^2.6.13",
+    "@vercel/analytics": "^1.5.0",
+    "@vercel/og": "^0.8.5",
+    "ai": "^5.0.46",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "embla-carousel": "^8.6.0",
+    "embla-carousel-autoplay": "^8.6.0",
+    "embla-carousel-react": "^8.6.0",
+    "framer-motion": "^12.23.15",
+    "lucide-react": "^0.544.0",
+    "next": "15.5.3",
+    "next-themes": "^0.4.6",
+    "node-fetch": "^3.3.2",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
+    "sonner": "^2.0.7",
+    "tailwind-merge": "^3.3.1",
+    "vaul": "^1.1.2",
+    "zod": "^4.1.9"
+  },
+  "devDependencies": {
+    "@eslint/compat": "^1.3.2",
+    "@eslint/eslintrc": "^3.3.1",
+    "@next/eslint-plugin-next": "^15.5.3",
+    "@tailwindcss/postcss": "^4.1.13",
+    "@types/node": "^24.5.2",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "@typescript-eslint/eslint-plugin": "^8.44.1",
+    "@typescript-eslint/parser": "^8.44.0",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.35.0",
+    "eslint-config-next": "^15.5.3",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-tailwindcss": "^3.18.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.1",
+    "postcss": "^8.5.6",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.6.14",
+    "tailwindcss": "^4.1.13",
+    "typescript": "^5.9.2"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,css,md,json}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=10.0.0"
+  }
+}

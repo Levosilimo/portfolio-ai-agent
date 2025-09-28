@@ -1,0 +1,167 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "appId": "portfolio-app",
+    "generatedAt": "2025-09-24T12:00:00Z",
+    "author": "John Doe",
+    "changelog": "Initial config with role, certifications, and languages"
+  },
+  "personal": {
+    "id": "john-doe",
+    "name": "John Doe",
+    "title": "Full Stack Engineer",
+    "bio": "Passionate developer with 8+ years of experience building scalable web applications and leading cross-functional teams.",
+    "email": "john.doe@example.com",
+    "handle": "johndoe",
+    "location": "Berlin, Germany",
+    "yearOfBirth": 1990,
+    "pronouns": "he/him",
+    "avatar": {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/2/26/Smile.png",
+      "fallback": "https://upload.wikimedia.org/wikipedia/commons/archive/2/26/20070702182626%21Smile.png"
+    },
+    "timezone": "Europe/Berlin"
+  },
+  "socials": {
+    "linkedin": "https://linkedin.com/in/johndoe",
+    "github": "https://github.com/johndoe",
+    "twitter": "https://twitter.com/johndoe",
+    "website": "https://johndoe.dev"
+  },
+  "contacts": [
+    { "name": "Email", "url": "mailto:john.doe@example.com" },
+    { "name": "LinkedIn", "url": "https://linkedin.com/in/johndoe" },
+    { "name": "GitHub", "url": "https://github.com/johndoe" }
+  ],
+  "languages": [
+    {
+      "id": "en",
+      "name": "English",
+      "level": "Native",
+      "certified": false
+    },
+    {
+      "id": "de",
+      "name": "German",
+      "level": "Fluent",
+      "certified": true,
+      "certificate": "https://goethe.de/certificate"
+    }
+  ],
+  "certifications": [
+    {
+      "id": "aws-cp",
+      "name": "AWS Certified Cloud Practitioner",
+      "issuer": "Amazon Web Services",
+      "date": "2023-05-12",
+      "credentialId": "ABC123XYZ",
+      "url": "https://aws.amazon.com/certification/verify",
+      "score": "950/1000"
+    },
+    {
+      "id": "k8s-admin",
+      "name": "Certified Kubernetes Administrator",
+      "issuer": "CNCF",
+      "date": "2024-01-20"
+    }
+  ],
+  "summary": "Seasoned engineer specializing in cloud-native systems, microservices, and team leadership.",
+  "education": [
+    {
+      "id": "uni-berlin",
+      "institution": "TU Berlin",
+      "degree": "MSc",
+      "field": "Computer Science",
+      "start": "2012-09-01",
+      "end": "2014-07-01",
+      "grade": "1.5",
+      "highlights": ["Thesis on distributed systems", "Teaching assistant in Algorithms"],
+      "isCurrent": false
+    }
+  ],
+  "experience": [
+    {
+      "id": "exp-1",
+      "company": "Acme Corp",
+      "position": "Senior Full Stack Engineer",
+      "type": "full-time",
+      "start": "2020-01-01",
+      "description": "Led a team of 6 engineers to build scalable SaaS solutions.",
+      "responsibilities": ["Architecture", "Mentorship", "Feature development"],
+      "technologies": ["React", "Node.js", "AWS", "PostgreSQL"],
+      "achievements": ["Reduced system downtime by 30%", "Launched new product lines"],
+      "location": "Berlin, Germany",
+      "remote": true
+    },
+    {
+      "id": "exp-2",
+      "company": "TechFlow",
+      "position": "Frontend Developer",
+      "type": "full-time",
+      "start": "2016-03-01",
+      "end": "2019-12-01",
+      "responsibilities": ["UI development", "Accessibility improvements"],
+      "technologies": ["Vue.js", "TypeScript"],
+      "achievements": ["Introduced design system used across company"]
+    }
+  ],
+  "skills": [
+    { "id": "frontend", "name": "Frontend", "items": ["React", "Next.js", "Vue.js"], "endorsementCount": 10 },
+    { "id": "backend", "name": "Backend", "items": ["Node.js", "GraphQL", "PostgreSQL"] },
+    { "id": "devops", "name": "DevOps", "items": ["AWS", "Kubernetes", "Terraform"] }
+  ],
+  "projects": [
+    {
+      "id": "proj-1",
+      "title": "SaaS Analytics Dashboard",
+      "summary": "A multi-tenant dashboard providing insights on user behavior.",
+      "description": "Designed and implemented full-stack SaaS analytics platform.",
+      "status": "active",
+      "featured": true,
+      "categories": ["SaaS", "Analytics"],
+      "tech": ["Next.js", "GraphQL", "AWS"],
+      "role": "creator",
+      "metrics": ["5k+ active users", "99.9% uptime"],
+      "achievements": ["Launched MVP in 3 months"],
+      "links": [{ "name": "GitHub", "url": "https://github.com/johndoe/saas-dashboard" }]
+    },
+    {
+      "id": "proj-2",
+      "title": "Open Source UI Library",
+      "summary": "Component library adopted by 20+ startups.",
+      "status": "completed",
+      "featured": false,
+      "categories": ["Open Source", "UI"],
+      "tech": ["React", "TypeScript", "Storybook"],
+      "role": "contributor",
+      "achievements": ["200+ GitHub stars"],
+      "links": [{ "name": "NPM", "url": "https://npmjs.com/package/ui-lib" }]
+    }
+  ],
+  "jobInterest": {
+    "seeking": true,
+    "type": "full-time",
+    "preferredLocations": ["Remote", "Berlin"],
+    "focusAreas": ["Full Stack Engineering", "DevOps"],
+    "availability": "Available immediately",
+    "remoteOnly": true
+  },
+  "personality": {
+    "tone": "friendly",
+    "traits": ["proactive", "detail-oriented"],
+    "interests": ["cycling", "open source", "AI research"],
+    "funFacts": ["I once biked 500km in 5 days"]
+  },
+  "resume": {
+    "url": "https://gws.wisc.edu/wp-content/uploads/sites/249/2023/10/College-resume-and-cover-letter-4.pdf",
+    "lastUpdated": "2025-05-01",
+    "format": "pdf"
+  },
+  "tools": [],
+  "privacy": {
+    "exposeEmail": false,
+    "exposeAge": true,
+    "publicProfile": true,
+    "shareMetrics": false
+  }
+}
