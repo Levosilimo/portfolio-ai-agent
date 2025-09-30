@@ -18,7 +18,7 @@ export function Projects({ config }: { config: PortfolioConfig }) {
       className="mx-auto max-w-5xl rounded-2xl border p-6 shadow-sm bg-card"
     >
       <h2 className="text-xl font-semibold mb-6">Projects</h2>
-      <div className="columns-2 md:columns-2 gap-4 space-y-4">
+      <div className="md:columns-2 gap-4 space-y-4">
         {config.projects.map((p) => (
           <motion.div
             key={p.id}

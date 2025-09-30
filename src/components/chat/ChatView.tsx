@@ -1,10 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import {useEffect, useRef, RefObject} from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { UIMessage } from "@ai-sdk/react";
 import {
-  ChatBubble,
   ChatBubbleAvatar,
   ChatBubbleMessage,
 } from "@/components/ui/chat/ChatBubble";
@@ -21,13 +20,11 @@ interface ChatViewProps {
   isLastMessageByUser: boolean;
   presetReplies: RepliesMap;
   handlePresetReply?: (question: string, reply: string, tool?: string) => void;
+  chatBodyRef?: RefObject<HTMLDivElement | null>;
 }
 
 const messageAnimation: Variants = {
-  hidden: (variant: "sent" | "received") => ({
-    opacity: 0,
-    y: 10,
-  }),
+  hidden: () => ({ opacity: 0, y: 10 }),
   visible: (variant: "sent" | "received") => ({
     opacity: 1,
     y: 0,
@@ -38,6 +35,15 @@ const messageAnimation: Variants = {
   }),
 };
 
+function scrollWithOffsetToScrollableContainer(el: HTMLElement, container: HTMLElement) {
+  const top = el.offsetTop - container.offsetTop;
+  container.scrollTo({
+    top: top,
+    behavior: "smooth",
+  });
+
+}
+
 export function ChatView({
   messages,
   config,
@@ -45,18 +51,29 @@ export function ChatView({
   isLastMessageByUser,
   presetReplies,
   handlePresetReply,
+  chatBodyRef,
 }: ChatViewProps) {
-  const bottomRef = useRef<HTMLDivElement | null>(null);
+  const scrollRef = useRef<HTMLDivElement | null>(null);
+  const lastUserMessageIndex = messages.findLastIndex(
+    (message) => message.role === "user",
+  );
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages, loadingSubmit]);
+    if (scrollRef.current && chatBodyRef?.current) {
+      requestAnimationFrame(() => {
+        scrollWithOffsetToScrollableContainer(scrollRef.current!, chatBodyRef.current!);
+      });
+    }
+  }, [messages, loadingSubmit, chatBodyRef]);
 
   return (
     <div className="flex flex-col px-4">
-      <div className="custom-scrollbar mx-auto flex w-full max-w-3xl flex-col gap-4 overflow-y-auto py-4">
+      <div
+        className="mx-auto flex w-full max-w-3xl flex-col gap-4 py-4"
+        style={{ overscrollBehavior: "contain" }}
+      >
         <AnimatePresence initial={false}>
-          {messages.map((message) => {
+          {messages.map((message, index) => {
             const variant: "sent" | "received" =
               message.role === "user" ? "sent" : "received";
 
@@ -66,6 +83,7 @@ export function ChatView({
               (p) => p.type === "text" && p.text.trim().length > 0,
             );
 
+            const isScrollRef = index === lastUserMessageIndex;
             return (
               <motion.div
                 key={message.id}
@@ -77,6 +95,7 @@ export function ChatView({
                 className={`flex w-full ${
                   variant === "sent" ? "justify-end" : "justify-start"
                 }`}
+                ref={isScrollRef ? scrollRef : undefined}
               >
                 {variant === "received" && (
                   <ChatBubbleAvatar
@@ -138,7 +157,7 @@ export function ChatView({
           )}
         </AnimatePresence>
 
-        <div ref={bottomRef} />
+        <div />
       </div>
     </div>
   );

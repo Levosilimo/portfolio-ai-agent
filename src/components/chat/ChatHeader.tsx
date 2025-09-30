@@ -12,7 +12,7 @@ interface ChatHeaderProps {
 export function ChatHeader({ isOnline, config, className }: ChatHeaderProps) {
   return (
     <div
-      className={`fixed flex flex-col top-0 left-0 right-0 z-50 bg-white ${className}`}
+      className={`flex flex-col bg-white ${className}`}
     >
       <div
         className={`flex items-center justify-between px-4 pt-2 md:px-6 transition-all duration-300 ease-in-out`}

@@ -27,30 +27,26 @@ export const MOTION_CONFIG: MotionProps = {
 export default function Chat({ config, presetAnswers }: ChatProps) {
     const state = useChatState(config, presetAnswers);
 
-    const HEADER_HEIGHT = 96;
-
     return (
-        <div className="relative min-h-screen flex flex-col bg-white">
-            <ChatHeader
-                isOnline={!state.isUsingPregenerated}
-                config={config}
-                className=""
-            />
-
-            <ChatBody
-                isEmptyState={state.isEmptyState}
-                handlePresetReply={state.handlePresetReply}
-                errorMessage={state.errorMessage}
-                messages={state.messages}
-                isLastMessageByUser={state.isLastMessageByUser}
-                loadingSubmit={state.loadingSubmit}
-                handleQueryAIResponse={state.handleQueryAIResponse}
-                config={config}
-                presetReplies={presetAnswers}
-                topOffset={HEADER_HEIGHT}
-            />
-
-            <div className="sticky bottom-0 z-50 bg-white px-2 pt-3 md:px-0">
+        <div className="h-screen flex flex-col bg-white">
+            <div className="flex-shrink-0">
+                <ChatHeader
+                    isOnline={!state.isUsingPregenerated}
+                    config={config}
+                />
+            </div>
+                <ChatBody
+                    isEmptyState={state.isEmptyState}
+                    handlePresetReply={state.handlePresetReply}
+                    errorMessage={state.errorMessage}
+                    messages={state.messages}
+                    isLastMessageByUser={state.isLastMessageByUser}
+                    loadingSubmit={state.loadingSubmit}
+                    handleQueryAIResponse={state.handleQueryAIResponse}
+                    config={config}
+                    presetReplies={presetAnswers}
+                />
+            <div className="flex-shrink-0 bg-white px-2 pt-3 md:px-0">
                 <div className="relative flex flex-col items-center gap-3 max-w-3xl mx-auto w-full">
                     <QuickQuestions
                         submitQuery={state.submitQuery}
@@ -68,11 +64,14 @@ export default function Chat({ config, presetAnswers }: ChatProps) {
                     />
                 </div>
                 <div className="w-full flex">
-                <Badge variant="secondary" className="text-xs mx-auto my-2">
-                    <Link href="https://github.com/Levosilimo/">Made with ♥ by Lev Sylin</Link>
-                </Badge>
+                    <Badge variant="secondary" className="text-xs mx-auto my-2">
+                        <Link href="https://github.com/Levosilimo/">
+                            Made with ♥ by Lev Sylin
+                        </Link>
+                    </Badge>
                 </div>
             </div>
         </div>
     );
 }
+
