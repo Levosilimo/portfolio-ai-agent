@@ -7,7 +7,7 @@ import { Toaster } from "@/components/ui/Sonner";
 import { loadConfigSync } from "@/config/loader";
 import "./globals.css";
 import React from "react";
-import {Badge} from "@/components/ui/Badge";
+import { Badge } from "@/components/ui/Badge";
 import Link from "next/link";
 
 const inter = Inter({
@@ -16,7 +16,7 @@ const inter = Inter({
 });
 
 export function generateMetadata(): Metadata {
-  const config = loadConfigSync({readCached: true});
+  const config = loadConfigSync({ readCached: true });
   const { personal, socials, summary } = config;
 
   const siteUrl =
@@ -80,7 +80,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const config = loadConfigSync({readCached: true});
+  const config = loadConfigSync({ readCached: true });
   const { personal, socials } = config;
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_ORIGIN ?? "http://localhost:3000";
@@ -117,9 +117,7 @@ export default function RootLayout({
           defaultTheme="light"
           enableSystem={false}
         >
-          <main className="flex min-h-screen flex-col">
-            {children}
-          </main>
+          <main className="flex min-h-screen flex-col">{children}</main>
           <Toaster />
         </ThemeProvider>
         <Analytics />

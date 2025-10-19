@@ -115,8 +115,7 @@ export async function POST(req: Request) {
         try {
           invalidateConfigCache();
           await cacheConfigAssets(validated);
-        } catch (_) {
-        }
+        } catch (_) {}
         return NextResponse.json(
           {
             ok: true,

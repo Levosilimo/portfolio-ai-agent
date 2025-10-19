@@ -1,7 +1,7 @@
 import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { convertToModelMessages, stepCountIs, streamText } from "ai";
 import * as Tools from "./tools";
-import {getParser, loadConfigSync} from "@/config/loader";
+import { getParser, loadConfigSync } from "@/config/loader";
 import { UIMessage } from "@ai-sdk/react";
 
 export const maxDuration = 30;
@@ -49,7 +49,7 @@ export async function POST(req: Request): Promise<Response> {
       getCertifications: Tools.getCertifications,
     };
 
-    const config = loadConfigSync({readCached: true})
+    const config = loadConfigSync({ readCached: true });
 
     const result = streamText({
       model: google("gemini-2.5-flash-lite"),

@@ -1,6 +1,6 @@
 "use client";
 
-import {useEffect, useRef, RefObject} from "react";
+import { useEffect, useRef, RefObject } from "react";
 import { motion, AnimatePresence, Variants } from "framer-motion";
 import { UIMessage } from "@ai-sdk/react";
 import {
@@ -20,7 +20,8 @@ interface ChatViewProps {
   isLastMessageByUser: boolean;
   presetReplies: RepliesMap;
   handlePresetReply?: (question: string, reply: string, tool?: string) => void;
-  chatBodyRef?: RefObject<HTMLDivElement | null>;
+  scrollChatBodyTo: (scrollToOptions: ScrollToOptions) => void;
+  chatBodyOffsetTop?: number;
 }
 
 const messageAnimation: Variants = {
@@ -35,15 +36,6 @@ const messageAnimation: Variants = {
   }),
 };
 
-function scrollWithOffsetToScrollableContainer(el: HTMLElement, container: HTMLElement) {
-  const top = el.offsetTop - container.offsetTop;
-  container.scrollTo({
-    top: top,
-    behavior: "smooth",
-  });
-
-}
-
 export function ChatView({
   messages,
   config,
@@ -51,7 +43,8 @@ export function ChatView({
   isLastMessageByUser,
   presetReplies,
   handlePresetReply,
-  chatBodyRef,
+  scrollChatBodyTo,
+  chatBodyOffsetTop,
 }: ChatViewProps) {
   const scrollRef = useRef<HTMLDivElement | null>(null);
   const lastUserMessageIndex = messages.findLastIndex(
@@ -59,18 +52,17 @@ export function ChatView({
   );
 
   useEffect(() => {
-    if (scrollRef.current && chatBodyRef?.current) {
+    if (scrollRef.current && typeof chatBodyOffsetTop === "number") {
       requestAnimationFrame(() => {
-        scrollWithOffsetToScrollableContainer(scrollRef.current!, chatBodyRef.current!);
+        const top = scrollRef.current!.offsetTop - chatBodyOffsetTop;
+        scrollChatBodyTo({ top, behavior: "smooth" });
       });
     }
-  }, [messages, loadingSubmit, chatBodyRef]);
+  }, [messages, loadingSubmit, chatBodyOffsetTop, scrollChatBodyTo]);
 
   return (
     <div className="flex flex-col px-4">
-      <div
-        className="mx-auto flex w-full max-w-3xl flex-col gap-4 py-4"
-      >
+      <div className="mx-auto flex w-full max-w-3xl flex-col gap-4 py-4">
         <AnimatePresence initial={false}>
           {messages.map((message, index) => {
             const variant: "sent" | "received" =

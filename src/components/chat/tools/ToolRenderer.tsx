@@ -56,7 +56,9 @@ export default function ToolRenderer({
 }: ToolRendererProps) {
   const Renderer = toolMap[tool];
 
-  const contactPreset = Object.entries(presetReplies).find(([_, {tool}]) => tool === "getContacts");
+  const contactPreset = Object.entries(presetReplies).find(
+    ([_, { tool }]) => tool === "getContacts",
+  );
   const onContactClick = () => {
     if (contactPreset && handlePresetReply) {
       handlePresetReply(
@@ -65,8 +67,8 @@ export default function ToolRenderer({
         contactPreset[1].tool,
       );
     }
-  }
-  
+  };
+
   if (Renderer) {
     return (
       <motion.div

@@ -362,7 +362,6 @@ export default function ConfigEditorWrapper() {
         body: JSON.stringify({ editorAdminOnly: next }),
       });
       const json = await res.json();
-      console.log(res);
       setAuthorized(res.status == 200);
       if (json.ok) {
         setSettings(json.settings);
@@ -539,7 +538,6 @@ export default function ConfigEditorWrapper() {
                         const base64 = Buffer.from(
                           JSON.stringify(draft, null, 2),
                         ).toString("base64");
-                        console.log(base64);
                         navigator.clipboard.writeText(base64).then(() => {
                           toast.success("Base64 copied to clipboard!");
                         });

@@ -7,39 +7,33 @@ export default class PortfolioParser {
   constructor(private cfg: PortfolioConfig) {}
 
   systemPrompt() {
-
     const tone = this.cfg.personality?.tone ?? "friendly";
     const { name, title, bio } = this.cfg.personal;
 
     const featuredProjects =
-        this.cfg.projects
-            .filter((p) => p.featured)
-            .slice(0, 3)
-            .map(
-                (p) =>
-                    `- ${p.title} (${p.role}): ${p.summary}`
-            )
-            .join("\n") || "- none";
+      this.cfg.projects
+        .filter((p) => p.featured)
+        .slice(0, 3)
+        .map((p) => `- ${p.title} (${p.role}): ${p.summary}`)
+        .join("\n") || "- none";
 
     const experienceHighlights = this.cfg.experience
-        .slice(0, 2)
-        .map(
-            (exp) =>
-                `- ${exp.position} at ${exp.company} (${exp.start ?? "?"} – ${
-                    exp.end ?? "present"
-                })`
-        )
-        .join("\n");
+      .slice(0, 2)
+      .map(
+        (exp) =>
+          `- ${exp.position} at ${exp.company} (${exp.start ?? "?"} – ${
+            exp.end ?? "present"
+          })`,
+      )
+      .join("\n");
 
     const skills = this.cfg.skills
-        .map((s) => `${s.name}: ${s.items.join(", ")}`)
-        .slice(0, 3)
-        .join("\n");
+      .map((s) => `${s.name}: ${s.items.join(", ")}`)
+      .slice(0, 3)
+      .join("\n");
 
     const contact =
-        this.cfg.socials?.linkedin ??
-        this.cfg.personal?.email ??
-        "not provided";
+      this.cfg.socials?.linkedin ?? this.cfg.personal?.email ?? "not provided";
 
     return [
       `You are ${name}, a ${title}.`,
@@ -64,7 +58,15 @@ export default class PortfolioParser {
   }
 
   presetReplies(): RepliesMap {
-    const { personal, skills, projects, resume, jobInterest, certifications, languages } = this.cfg;
+    const {
+      personal,
+      skills,
+      projects,
+      resume,
+      jobInterest,
+      certifications,
+      languages,
+    } = this.cfg;
 
     const answers: RepliesMap = {};
 
@@ -84,11 +86,11 @@ export default class PortfolioParser {
       const featured = projects.filter((p) => p.featured);
       answers["What projects are you most proud of?"] = {
         reply:
-            featured.length > 0
-                ? `Here are a few of my featured projects: ${featured
-                    .map((p) => p.title)
-                    .join(", ")}.`
-                : `I’ve worked on a number of impactful projects. Here’s an overview:`,
+          featured.length > 0
+            ? `Here are a few of my featured projects: ${featured
+                .map((p) => p.title)
+                .join(", ")}.`
+            : `I’ve worked on a number of impactful projects. Here’s an overview:`,
         tool: "getProjects",
       };
     }
@@ -115,7 +117,7 @@ export default class PortfolioParser {
 
       answers["What kind of role are you looking for?"] = {
         reply: `I’m most interested in roles focused on ${jobInterest.focusAreas.join(", ") || "software development"}${
-            jobInterest.remoteOnly ? " (remote preferred)" : ""
+          jobInterest.remoteOnly ? " (remote preferred)" : ""
         }.`,
         tool: "getJobInterest",
       };

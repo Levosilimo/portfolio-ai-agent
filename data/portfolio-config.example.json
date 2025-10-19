@@ -75,7 +75,10 @@
       "start": "2012-09-01",
       "end": "2014-07-01",
       "grade": "1.5",
-      "highlights": ["Thesis on distributed systems", "Teaching assistant in Algorithms"],
+      "highlights": [
+        "Thesis on distributed systems",
+        "Teaching assistant in Algorithms"
+      ],
       "isCurrent": false
     }
   ],
@@ -89,7 +92,10 @@
       "description": "Led a team of 6 engineers to build scalable SaaS solutions.",
       "responsibilities": ["Architecture", "Mentorship", "Feature development"],
       "technologies": ["React", "Node.js", "AWS", "PostgreSQL"],
-      "achievements": ["Reduced system downtime by 30%", "Launched new product lines"],
+      "achievements": [
+        "Reduced system downtime by 30%",
+        "Launched new product lines"
+      ],
       "location": "Berlin, Germany",
       "remote": true
     },
@@ -106,9 +112,22 @@
     }
   ],
   "skills": [
-    { "id": "frontend", "name": "Frontend", "items": ["React", "Next.js", "Vue.js"], "endorsementCount": 10 },
-    { "id": "backend", "name": "Backend", "items": ["Node.js", "GraphQL", "PostgreSQL"] },
-    { "id": "devops", "name": "DevOps", "items": ["AWS", "Kubernetes", "Terraform"] }
+    {
+      "id": "frontend",
+      "name": "Frontend",
+      "items": ["React", "Next.js", "Vue.js"],
+      "endorsementCount": 10
+    },
+    {
+      "id": "backend",
+      "name": "Backend",
+      "items": ["Node.js", "GraphQL", "PostgreSQL"]
+    },
+    {
+      "id": "devops",
+      "name": "DevOps",
+      "items": ["AWS", "Kubernetes", "Terraform"]
+    }
   ],
   "projects": [
     {
@@ -123,7 +142,9 @@
       "role": "creator",
       "metrics": ["5k+ active users", "99.9% uptime"],
       "achievements": ["Launched MVP in 3 months"],
-      "links": [{ "name": "GitHub", "url": "https://github.com/johndoe/saas-dashboard" }]
+      "links": [
+        { "name": "GitHub", "url": "https://github.com/johndoe/saas-dashboard" }
+      ]
     },
     {
       "id": "proj-2",

@@ -15,10 +15,10 @@ No coding knowledge required. Just configure, deploy, and showcase your best sel
 
 - Fully customizable AI chat, driven by your JSON config.
 - Features:
-    - Preset questions & responses
-    - Dynamic AI replies (Google Gemini API)
-    - Mobile optimized
-    - Quota management & graceful fallback
+  - Preset questions & responses
+  - Dynamic AI replies (Google Gemini API)
+  - Mobile optimized
+  - Quota management & graceful fallback
 
 ---
 
@@ -78,6 +78,7 @@ No coding knowledge required. Just configure, deploy, and showcase your best sel
    - Visit [http://localhost:3000](http://localhost:3000)
 
 7. **Deploy**
+
    ```bash
    npm run build
    ```

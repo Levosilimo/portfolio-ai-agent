@@ -8,9 +8,10 @@ import { PortfolioConfig } from "@/types/portfolio-schema";
 export default function Presentation({ config }: { config: PortfolioConfig }) {
   const avatarUrl =
     config.personal.avatar?.src || config.personal.avatar?.fallback;
-  const age = config.personal.yearOfBirth && config.privacy.exposeAge
-    ? new Date().getFullYear() - config.personal.yearOfBirth
-    : undefined;
+  const age =
+    config.personal.yearOfBirth && config.privacy.exposeAge
+      ? new Date().getFullYear() - config.personal.yearOfBirth
+      : undefined;
 
   return (
     <div className="mx-auto w-full max-w-5xl py-6 font-sans px-4 sm:px-6">
@@ -26,7 +27,9 @@ export default function Presentation({ config }: { config: PortfolioConfig }) {
             {age && <p>{age} y/o</p>}
             {config.personal.location && (
               <>
-              {age && <span className="hidden md:block bg-border h-1.5 w-1.5 rounded-full" />}
+                {age && (
+                  <span className="hidden md:block bg-border h-1.5 w-1.5 rounded-full" />
+                )}
                 <p>{config.personal.location}</p>
               </>
             )}
@@ -45,23 +48,22 @@ export default function Presentation({ config }: { config: PortfolioConfig }) {
         </motion.div>
         {/* Image */}
         {avatarUrl && (
-            <motion.div
-                initial="hidden"
-                animate="visible"
-                variants={scaleIn}
-                className="relative mx-auto aspect-square w-full max-w-sm rounded-2xl overflow-hidden"
-            >
-              <Image
-                  src={avatarUrl}
-                  alt={`${config.personal.name} Avatar`}
-                  width={500}
-                  height={500}
-                  className="object-cover w-full h-full"
-              />
-            </motion.div>
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={scaleIn}
+            className="relative mx-auto aspect-square w-full max-w-sm rounded-2xl overflow-hidden"
+          >
+            <Image
+              src={avatarUrl}
+              alt={`${config.personal.name} Avatar`}
+              width={500}
+              height={500}
+              className="object-cover w-full h-full"
+            />
+          </motion.div>
         )}
       </div>
     </div>
   );
 }
-

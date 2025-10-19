@@ -1,6 +1,6 @@
 import { tool } from "ai";
 import { z } from "zod";
-import {loadConfigWithCachingImages} from "@/config/loader";
+import { loadConfigWithCachingImages } from "@/config/loader";
 
 const load = async () => await loadConfigWithCachingImages();
 

@@ -7,7 +7,7 @@ import ChatLanding from "./ChatLanding";
 import { MOTION_CONFIG } from "@/components/chat/Chat";
 import { PortfolioConfig } from "@/types/portfolio-schema";
 import { RepliesMap } from "@/types/chat";
-import {useRef} from "react";
+import { useRef } from "react";
 
 interface ChatBodyProps {
   isEmptyState: boolean;
@@ -33,6 +33,9 @@ export function ChatBody({
   handlePresetReply,
 }: ChatBodyProps) {
   const chatBodyRef = useRef<HTMLDivElement | null>(null);
+  const scrollTo = (scrollToOptions: ScrollToOptions) => {
+    chatBodyRef.current?.scrollTo(scrollToOptions);
+  };
   return (
     <div className="flex-1 overflow-y-auto px-2 pb-4" ref={chatBodyRef}>
       <AnimatePresence mode="wait">
@@ -65,7 +68,8 @@ export function ChatBody({
             isLastMessageByUser={isLastMessageByUser}
             handlePresetReply={handlePresetReply}
             presetReplies={presetReplies}
-            chatBodyRef={chatBodyRef}
+            scrollChatBodyTo={scrollTo}
+            chatBodyOffsetTop={chatBodyRef.current?.offsetTop}
           />
         )}
       </AnimatePresence>

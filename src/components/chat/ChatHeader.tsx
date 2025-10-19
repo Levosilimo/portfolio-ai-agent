@@ -3,7 +3,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/Avatar";
 import { PortfolioConfig } from "@/types/portfolio-schema";
 import Link from "next/link";
-import {PencilIcon} from "lucide-react";
+import { PencilIcon } from "lucide-react";
 
 interface ChatHeaderProps {
   isOnline: boolean;
@@ -13,9 +13,7 @@ interface ChatHeaderProps {
 
 export function ChatHeader({ isOnline, config, className }: ChatHeaderProps) {
   return (
-    <div
-      className={`flex flex-col bg-white ${className}`}
-    >
+    <div className={`flex flex-col bg-white ${className}`}>
       <div
         className={`flex items-center justify-between px-4 pt-2 md:px-6 transition-all duration-300 ease-in-out`}
       >
@@ -27,12 +25,13 @@ export function ChatHeader({ isOnline, config, className }: ChatHeaderProps) {
           <div className="flex flex-col">
             <div className="flex items-center text-base font-semibold text-foreground">
               {config.personal.name || "AI Assistant"}
-
             </div>
             <div className="flex text-xs text-muted-foreground max-w-xs">
               {config.personal.title}
 
-              <Link href={"/admin"}><PencilIcon className="w-4  p-0.5 h-3  rounded-md"/></Link>
+              <Link href={"/admin"}>
+                <PencilIcon className="w-4  p-0.5 h-3  rounded-md" />
+              </Link>
             </div>
           </div>
         </div>

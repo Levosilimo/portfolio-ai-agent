@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import Chat from "@/components/chat/Chat";
-import {getParser, loadConfigWithCachingImages} from "@/config/loader";
+import { getParser, loadConfigWithCachingImages } from "@/config/loader";
 
 export default async function Home() {
   const config = await loadConfigWithCachingImages();

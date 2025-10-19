@@ -18,6 +18,8 @@ import {
   UserRoundSearch,
   UserSearch,
   Laugh,
+  HammerIcon,
+  FileUserIcon,
 } from "lucide-react";
 import { Drawer } from "vaul";
 import { Button } from "@/components/ui/Button";
@@ -49,9 +51,9 @@ const baseQuestions: Record<string, string> = {
 
 const quickActions = [
   { key: "Me", color: "#329696", icon: Laugh },
-  { key: "Projects", color: "#3E9858", icon: BriefcaseBusiness },
   { key: "Skills", color: "#856ED9", icon: Layers },
-  { key: "Resume", color: "#D97856", icon: FileText },
+  { key: "Projects", color: "#3E9858", icon: HammerIcon },
+  { key: "Resume", color: "#D97856", icon: FileUserIcon },
   { key: "Contact", color: "#C19433", icon: UserRoundSearch },
 ];
 

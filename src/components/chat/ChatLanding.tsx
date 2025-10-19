@@ -6,14 +6,19 @@ import { PortfolioConfig } from "@/types/portfolio-schema";
 import React, { useMemo } from "react";
 import {
   BowArrowIcon,
-  CircleUserIcon, DramaIcon,
-  FactoryIcon, FileUserIcon,
+  CircleUserIcon,
+  DramaIcon,
+  FactoryIcon,
+  FileUserIcon,
   HammerIcon,
   HandshakeIcon,
   LanguagesIcon,
+  Laugh,
+  Layers,
   LucideIcon,
   MessageSquare,
   SignatureIcon,
+  UserRoundSearch,
 } from "lucide-react";
 import { ResumeIcon } from "@radix-ui/react-icons";
 import { IconProps } from "@radix-ui/react-icons/dist/types";
@@ -32,11 +37,11 @@ const ICON_MAP: Record<
       IconProps & React.RefAttributes<SVGSVGElement>
     >
 > = {
-  "Who are you?": MessageSquare,
-  "What are your skills?": BowArrowIcon,
+  "Who are you?": Laugh,
+  "What are your skills?": Layers,
   "What projects are you most proud of?": HammerIcon,
   "Can I see your resume?": FileUserIcon,
-  "How can I reach you?": CircleUserIcon,
+  "How can I reach you?": UserRoundSearch,
   "Are you open to opportunities?": HandshakeIcon,
   "What kind of role are you looking for?": DramaIcon,
   "Do you have any certifications?": SignatureIcon,
@@ -53,7 +58,7 @@ export default function ChatLanding({
   const questions = useMemo(() => {
     return Object.entries(presetReplies).map(([q], idx) => ({
       id: idx,
-      text: q
+      text: q,
     }));
   }, [presetReplies]);
 
