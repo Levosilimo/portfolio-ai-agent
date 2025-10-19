@@ -2,6 +2,8 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/Avatar";
 import { PortfolioConfig } from "@/types/portfolio-schema";
+import Link from "next/link";
+import {PencilIcon} from "lucide-react";
 
 interface ChatHeaderProps {
   isOnline: boolean;
@@ -23,12 +25,15 @@ export function ChatHeader({ isOnline, config, className }: ChatHeaderProps) {
             <AvatarFallback>AI</AvatarFallback>
           </Avatar>
           <div className="flex flex-col">
-            <span className="text-base font-semibold text-foreground">
+            <div className="flex items-center text-base font-semibold text-foreground">
               {config.personal.name || "AI Assistant"}
-            </span>
-            <span className="text-xs text-muted-foreground max-w-xs">
+
+            </div>
+            <div className="flex text-xs text-muted-foreground max-w-xs">
               {config.personal.title}
-            </span>
+
+              <Link href={"/admin"}><PencilIcon className="w-4  p-0.5 h-3  rounded-md"/></Link>
+            </div>
           </div>
         </div>
 

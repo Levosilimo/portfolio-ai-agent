@@ -1,11 +1,11 @@
 import { ImageResponse } from "@vercel/og";
-import { loadConfigWithCachedImages } from "@/config/loader";
+import { loadConfigWithCachingImages } from "@/config/loader";
 
 export const runtime = "nodejs";
 
 export async function GET(req: Request) {
     try {
-        const config = await loadConfigWithCachedImages();
+        const config = await loadConfigWithCachingImages();
         const subtitle = config.summary ?? config.personal.bio.slice(0, 140);
         const avatar = config.personal.avatar?.src ?? `${process.env.NEXT_PUBLIC_SITE_ORIGIN}/profile.png`;
 

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { fadeInUp } from "@/utils/motion";
 import { PortfolioConfig } from "@/types/portfolio-schema";
 
-export function Experience({ config }: { config: PortfolioConfig }) {
+export default function Experience({ config }: { config: PortfolioConfig }) {
     return (
         <div className="mx-auto max-w-5xl px-4 py-8 font-sans">
             <h2 className="text-2xl font-bold mb-6">Experience</h2>

@@ -16,7 +16,7 @@ const inter = Inter({
 });
 
 export function generateMetadata(): Metadata {
-  const config = loadConfigSync();
+  const config = loadConfigSync({readCached: true});
   const { personal, socials, summary } = config;
 
   const siteUrl =
@@ -80,7 +80,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const config = loadConfigSync();
+  const config = loadConfigSync({readCached: true});
   const { personal, socials } = config;
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_ORIGIN ?? "http://localhost:3000";

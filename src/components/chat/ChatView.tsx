@@ -70,7 +70,6 @@ export function ChatView({
     <div className="flex flex-col px-4">
       <div
         className="mx-auto flex w-full max-w-3xl flex-col gap-4 py-4"
-        style={{ overscrollBehavior: "contain" }}
       >
         <AnimatePresence initial={false}>
           {messages.map((message, index) => {

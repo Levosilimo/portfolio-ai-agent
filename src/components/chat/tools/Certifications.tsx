@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { fadeInUp } from "@/utils/motion";
 import { PortfolioConfig } from "@/types/portfolio-schema";
 
-export function Certifications({ config }: { config: PortfolioConfig }) {
+export default function Certifications({ config }: { config: PortfolioConfig }) {
     return (
         <div className="mx-auto max-w-4xl px-4 py-8 font-sans">
             <h2 className="text-2xl font-bold mb-6">Certifications</h2>

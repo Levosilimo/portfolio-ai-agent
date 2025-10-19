@@ -1,11 +1,12 @@
 import fs from "fs";
 import path from "path";
 import {
-  PortfolioConfigSchema,
   type PortfolioConfig,
+  PortfolioConfigSchema,
 } from "@/types/portfolio-schema";
 import PortfolioParser from "./parser";
 import { cacheConfigAssets } from "@/utils/cacheConfigImages";
+import { revalidatePath } from "next/cache";
 
 const DEFAULT_CONFIG_FILE = "data/portfolio-config.example.json";
 const CONFIG_PATH =
@@ -15,7 +16,6 @@ const CONFIG_PATH =
 const BASE64_CONFIG_ENV = process.env.PORTFOLIO_CONFIG_BASE64;
 
 let _cachedConfig: PortfolioConfig | null = null;
-let _cachedParser: PortfolioParser | null = null;
 
 function readRawConfig(filePath: string): string {
   if (fs.existsSync(filePath)) {
@@ -50,38 +50,36 @@ async function readRawConfigAsync(filePath: string): Promise<string> {
   throw new Error(`Portfolio config not found at ${filePath}`);
 }
 
-export async function loadConfigWithCachedImages(): Promise<PortfolioConfig> {
-  if (_cachedConfig) return _cachedConfig;
-
+export async function loadConfigWithCachingImages(): Promise<PortfolioConfig> {
   const raw = await readRawConfigAsync(CONFIG_PATH);
   const parsed = JSON.parse(raw);
   const validated = PortfolioConfigSchema.parse(parsed);
-
-  const cached = await cacheConfigAssets(validated);
-
-  _cachedConfig = cached;
-  _cachedParser = new PortfolioParser(cached);
-
-  return cached;
+  return await cacheConfigAssets(validated);
 }
 
-export function loadConfigSync(): PortfolioConfig {
-  if (_cachedConfig) return _cachedConfig;
+type loadConfigSyncParams = {
+  readCached?: boolean;
+  enableCaching?: boolean;
+};
+
+export function loadConfigSync({
+  readCached,
+  enableCaching,
+}: loadConfigSyncParams): PortfolioConfig {
+  if (_cachedConfig && readCached) return _cachedConfig;
 
   const raw = readRawConfig(CONFIG_PATH);
   const parsed = JSON.parse(raw);
   const validated = PortfolioConfigSchema.parse(parsed);
 
-  _cachedParser = new PortfolioParser(validated);
-
   return validated;
 }
 
-export function getParser(): PortfolioParser {
-  if (!_cachedParser) {
-    _cachedParser = new PortfolioParser(
-      _cachedConfig ? _cachedConfig : loadConfigSync(),
-    );
-  }
-  return _cachedParser;
+export function invalidateConfigCache(): void {
+  _cachedConfig = null;
+  revalidatePath("/");
+}
+
+export function getParser(config: PortfolioConfig): PortfolioParser {
+  return new PortfolioParser(config);
 }

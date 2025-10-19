@@ -5,7 +5,7 @@ import Image from "next/image";
 import { fadeInUp, scaleIn } from "@/utils/motion";
 import { PortfolioConfig } from "@/types/portfolio-schema";
 
-export function Presentation({ config }: { config: PortfolioConfig }) {
+export default function Presentation({ config }: { config: PortfolioConfig }) {
   const avatarUrl =
     config.personal.avatar?.src || config.personal.avatar?.fallback;
   const age = config.personal.yearOfBirth && config.privacy.exposeAge
@@ -65,4 +65,3 @@ export function Presentation({ config }: { config: PortfolioConfig }) {
   );
 }
 
-export default Presentation;

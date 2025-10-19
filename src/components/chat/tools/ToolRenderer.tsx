@@ -1,16 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Contacts } from "./Contacts";
+import Contacts from "./Contacts";
 import CVCard from "./CVCard";
-import { Presentation } from "./Presentation";
+import Presentation from "./Presentation";
 import AllProjects from "@/components/chat/tools/projects/Projects";
 import Resume from "./Resume";
 import Skills from "./Skills";
 import { PortfolioConfig } from "@/types/portfolio-schema";
-import { Experience } from "@/components/chat/tools/Experience";
-import { Languages } from "@/components/chat/tools/Languages";
-import { Certifications } from "@/components/chat/tools/Certifications";
+import Experience from "@/components/chat/tools/Experience";
+import Languages from "@/components/chat/tools/Languages";
+import Certifications from "@/components/chat/tools/Certifications";
 import React from "react";
 import { RepliesMap } from "@/types/chat";
 

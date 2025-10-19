@@ -5,7 +5,7 @@ import { Mail, MapPin, AtSign, LinkIcon } from "lucide-react";
 import { PortfolioConfig } from "@/types/portfolio-schema";
 import { fadeInUp } from "@/utils/motion";
 
-export function Contacts({ config }: { config: PortfolioConfig }) {
+export default function Contacts({ config }: { config: PortfolioConfig }) {
     const { personal, socials, contacts, privacy } = config;
 
     const socialLinks = Object.entries(socials ?? {}).filter(
@@ -83,4 +83,3 @@ export function Contacts({ config }: { config: PortfolioConfig }) {
     );
 }
 
-export default Contacts;
