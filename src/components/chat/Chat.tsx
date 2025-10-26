@@ -1,6 +1,6 @@
 "use client";
 
-import { MotionProps } from "framer-motion";
+import { MotionProps } from "motion/react";
 import ChatForm from "@/components/chat/ChatForm";
 import QuickQuestions from "./QuickQuestions";
 import { ChatHeader } from "./ChatHeader";

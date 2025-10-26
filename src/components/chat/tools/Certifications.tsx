@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import * as motion from "motion/react-client";
 import { fadeInUp } from "@/utils/motion";
 import { PortfolioConfig } from "@/types/portfolio-schema";
 

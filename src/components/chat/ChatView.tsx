@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useRef, RefObject } from "react";
-import { motion, AnimatePresence, Variants } from "framer-motion";
+import { useEffect, useRef } from "react";
+import * as motion from "motion/react-client";
+import { AnimatePresence, Variants } from "motion/react";
 import { UIMessage } from "@ai-sdk/react";
 import {
   ChatBubbleAvatar,

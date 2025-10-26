@@ -1,15 +1,20 @@
 import { Suspense } from "react";
-import Chat from "@/components/chat/Chat";
 import { getParser, loadConfigWithCachingImages } from "@/config/loader";
+import ChatSkeleton from "@/components/chat/ChatSkeleton";
+import ChatWrapper from "@/components/chat/ChatWrapper";
 
-export default async function Home() {
-  const config = await loadConfigWithCachingImages();
-  const presetAnswers = getParser(config).presetReplies();
+export default function Home() {
   return (
     <div className="min-h-screen">
-      <Suspense fallback={<div>Loading chat...</div>}>
-        <Chat config={config} presetAnswers={presetAnswers} />
+      <Suspense fallback={<ChatSkeleton />}>
+        <ChatLoader />
       </Suspense>
     </div>
   );
+}
+
+async function ChatLoader() {
+  const config = await loadConfigWithCachingImages();
+  const presetAnswers = getParser(config).presetReplies();
+  return <ChatWrapper config={config} presetAnswers={presetAnswers} />;
 }

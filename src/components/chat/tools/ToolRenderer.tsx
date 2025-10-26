@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import * as motion from "motion/react-client";
 import Contacts from "./Contacts";
 import CVCard from "./CVCard";
 import Presentation from "./Presentation";

@@ -1,12 +1,11 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
+import * as motion from "motion/react-client";
+import { Variants } from "motion/react";
 import { RepliesMap } from "@/types/chat";
 import { PortfolioConfig } from "@/types/portfolio-schema";
 import React, { useMemo } from "react";
 import {
-  BowArrowIcon,
-  CircleUserIcon,
   DramaIcon,
   FactoryIcon,
   FileUserIcon,
@@ -16,11 +15,9 @@ import {
   Laugh,
   Layers,
   LucideIcon,
-  MessageSquare,
   SignatureIcon,
   UserRoundSearch,
 } from "lucide-react";
-import { ResumeIcon } from "@radix-ui/react-icons";
 import { IconProps } from "@radix-ui/react-icons/dist/types";
 
 interface ChatLandingProps {

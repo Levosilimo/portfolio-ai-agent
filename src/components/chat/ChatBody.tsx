@@ -1,6 +1,7 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence } from "motion/react";
+import * as motion from "motion/react-client";
 import { UIMessage } from "@ai-sdk/react";
 import { ChatView } from "./ChatView";
 import ChatLanding from "./ChatLanding";

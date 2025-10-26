@@ -1,7 +1,7 @@
 "use client";
 
 import { ChatRequestOptions } from "ai";
-import { motion } from "framer-motion";
+import * as motion from "motion/react-client";
 import { ArrowRight } from "lucide-react";
 import React, { useEffect } from "react";
 

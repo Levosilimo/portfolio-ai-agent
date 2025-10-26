@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import * as motion from "motion/react-client";
 import { Briefcase, Mail, Code, Book, Award } from "lucide-react";
 import { PortfolioConfig } from "@/types/portfolio-schema";
 import { fadeInUp } from "@/utils/motion";

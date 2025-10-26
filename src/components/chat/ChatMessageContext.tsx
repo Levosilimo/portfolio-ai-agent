@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/Collapsible";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
-import { motion } from "framer-motion";
+import * as motion from "motion/react-client";
 
 export type ChatMessageContentProps = {
   message: UIMessage;
