@@ -1,5 +1,5 @@
 import React from "react";
-import ConfigEditorWrapper from "@/components/admin/ConfigEditor";
+import ConfigEditorWrapper from "@/components/admin/ConfigEditor/ConfigEditor";
 
 export default function AdminPage() {
   return (
