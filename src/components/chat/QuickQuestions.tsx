@@ -191,9 +191,9 @@ export default function QuickQuestions({
                 key={key}
                 onClick={() => handleActionClick(key)}
                 variant="outline"
-                className="border-border hover:bg-border/30 h-auto min-w-[100px] rounded-xl border bg-white/80 px-4 py-3 shadow-none backdrop-blur-sm"
+                className="border-border hover:bg-border/30 h-auto min-w-[100px] rounded-xl border bg-background/80 px-4 py-3 shadow-none backdrop-blur-sm"
               >
-                <div className="flex items-center gap-3 text-gray-700">
+                <div className="flex items-center gap-3 text-primary">
                   <Icon size={18} strokeWidth={2} color={color} />
                   <span className="text-sm font-medium">{key}</span>
                 </div>
@@ -205,7 +205,7 @@ export default function QuickQuestions({
                 <TooltipTrigger asChild>
                   <Drawer.Trigger className="flex items-center justify-center">
                     <motion.div
-                      className="flex cursor-pointer items-center rounded-xl border border-neutral-200 bg-white/80 px-4 py-3 backdrop-blur-sm hover:bg-border/30 dark:border-neutral-800 dark:bg-neutral-900"
+                      className="flex cursor-pointer items-center rounded-xl border border-neutral-200 bg-background/80 px-4 py-3 backdrop-blur-sm hover:bg-border/30 dark:border-neutral-800 dark:bg-neutral-900"
                       whileTap={{ scale: 0.98 }}
                     >
                       <CircleEllipsis className="h-[20px] w-[18px]" />
@@ -224,7 +224,7 @@ export default function QuickQuestions({
       <Drawer.Portal>
         <Drawer.Overlay className="fixed inset-0 z-100 bg-black/60 backdrop-blur-xs" />
         <Drawer.Content className="fixed inset-x-0 bottom-0 z-100 mt-24 flex h-[80%] flex-col rounded-t-[10px] bg-gray-100 lg:h-[60%]">
-          <div className="flex-1 overflow-y-auto rounded-t-[10px] bg-white p-4">
+          <div className="flex-1 overflow-y-auto rounded-t-[10px] bg-background p-4">
             <div className="mx-auto max-w-md space-y-8 pb-16">
               {categories.map((c) => (
                 <Category
@@ -255,7 +255,7 @@ function Category({ name, Icon, questions, onClick }: CategoryProps) {
     <div className="space-y-3">
       <div className="flex items-center gap-2.5 px-1">
         <Icon className="h-5 w-5" />
-        <Drawer.Title className="text-[22px] font-medium text-gray-900">
+        <Drawer.Title className="text-[22px] font-medium text-primary/90">
           {name}
         </Drawer.Title>
       </div>
@@ -279,7 +279,7 @@ function Question({ text, onClick }: { text: string; onClick: () => void }) {
     <motion.button
       className={cn(
         "flex w-full items-center justify-between rounded-[10px] px-6 py-4 text-left text-md font-normal focus:outline-none",
-        isSpecial ? "bg-black text-white" : "bg-[#F7F8F9]",
+        isSpecial ? "bg-black text-white" : "bg-primary text-secondary",
       )}
       onClick={onClick}
       onHoverStart={() => setHovered(true)}

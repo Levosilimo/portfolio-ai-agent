@@ -3,7 +3,7 @@ import "react-loading-skeleton/dist/skeleton.css";
 
 export default function ChatSkeleton() {
   return (
-    <div className="h-screen flex flex-col bg-white">
+    <div className="h-screen flex flex-col bg-background">
       {/* Header */}
       <div className="flex-shrink-0">
         <div className="flex items-center justify-between border-b border-border/50 px-4 md:px-6">
@@ -37,7 +37,7 @@ export default function ChatSkeleton() {
             {[...Array(6)].map((_, idx) => (
               <div
                 key={idx}
-                className="flex items-center w-full border-t border-border/50 bg-gray-50/50 dark:bg-neutral-900/50 rounded-lg px-4 py-3"
+                className="flex items-center w-full border-t border-border/50 bg-gray-50/50 dark:bg-gray-900/50 rounded-lg px-4 py-3"
               >
                 <Skeleton circle width={32} height={32} />
                 <div className="ml-3 w-full">
@@ -50,7 +50,7 @@ export default function ChatSkeleton() {
       </div>
 
       {/* Footer */}
-      <div className={"flex-shrink-0 bg-white px-2 pt-3 md:px-0"}>
+      <div className={"flex-shrink-0 bg-background px-2 pt-3 md:px-0"}>
         {/* Chat form */}
         <div className="flex-shrink-0 px-2 md:px-0">
           {/* Quick questions */}

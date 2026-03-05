@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
   --color-background: var(--background);
@@ -40,6 +40,7 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --image-fade-linear: var(--fade-gradient);
 }
 
 :root {
@@ -75,6 +76,11 @@
   --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
   --sidebar-border: oklch(0.92 0.004 286.32);
   --sidebar-ring: oklch(0.705 0.015 286.067);
+  --fade-gradient: linear-gradient(
+    to bottom,
+    var(--background) 0%,
+    transparent 100%
+  );
 }
 
 .dark {
@@ -109,6 +115,11 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.552 0.016 285.938);
+  --fade-gradient: linear-gradient(
+    to bottom,
+    var(--background) 0%,
+    transparent 100%
+  );
 }
 
 @layer base {

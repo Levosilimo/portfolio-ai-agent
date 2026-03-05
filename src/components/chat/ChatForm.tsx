@@ -52,7 +52,7 @@ export default function ChatForm({
       className="w-full"
     >
       <form onSubmit={handleSubmit} className="relative w-full md:px-4">
-        <div className="mx-auto flex items-center rounded-full border border-[#E5E5E9] bg-[#ECECF0] py-2 pr-2 pl-6 max-w-2xl">
+        <div className="mx-auto flex items-center rounded-full text-primary border border-border bg-muted/50 py-2 pr-2 pl-6 max-w-2xl">
           <input
             ref={inputRef}
             type="text"
@@ -62,7 +62,7 @@ export default function ChatForm({
             placeholder={
               isToolInProgress ? "Tool is in progress..." : "Ask me anything"
             }
-            className="text-md w-full border-none bg-transparent text-black placeholder:text-gray-500 focus:outline-none"
+            className="text-md w-full border-none bg-transparent text-primary placeholder:text-gray-500 focus:outline-none"
             disabled={isToolInProgress || isLoading}
           />
 

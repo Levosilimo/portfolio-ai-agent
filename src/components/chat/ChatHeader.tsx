@@ -13,7 +13,7 @@ interface ChatHeaderProps {
 
 export function ChatHeader({ isOnline, config, className }: ChatHeaderProps) {
   return (
-    <div className={`flex flex-col bg-white ${className}`}>
+    <div className={`flex flex-col bg-background ${className}`}>
       <div
         className={`flex items-center justify-between px-4 pt-2 md:px-6 transition-all duration-300 ease-in-out`}
       >
@@ -54,9 +54,7 @@ export function ChatHeader({ isOnline, config, className }: ChatHeaderProps) {
       </div>
       <div
         className={"h-2"}
-        style={{
-          background: `linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%)`,
-        }}
+        style={{ background: "var(--fade-gradient)" }}
       ></div>
     </div>
   );

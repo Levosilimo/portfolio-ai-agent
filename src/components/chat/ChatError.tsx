@@ -16,7 +16,7 @@ export default function ChatError({
           <div className="space-y-4 p-4">
             <div className="flex items-center gap-3 mb-3">
               <div className="h-10 w-10 rounded-full bg-amber-500 flex items-center justify-center">
-                <span className="text-white text-lg">⚠️</span>
+                <span className="text-primary text-lg">⚠️</span>
               </div>
               <div>
                 <h3 className="font-semibold text-amber-800 text-sm">Error</h3>

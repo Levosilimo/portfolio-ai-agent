@@ -7,8 +7,6 @@ import { Toaster } from "@/components/ui/Sonner";
 import { loadConfigSync } from "@/config/loader";
 import "./globals.css";
 import React from "react";
-import { Badge } from "@/components/ui/Badge";
-import Link from "next/link";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,9 +22,9 @@ export function generateMetadata(): Metadata {
 
   const title = `${personal.name} – ${personal.title}`;
   const description = summary ?? personal.bio;
-  const ogImage = `${siteUrl}/api/og`;
 
   return {
+    metadataBase: new URL(siteUrl),
     title: {
       default: title,
       template: `%s | ${personal.name} Portfolio`,
@@ -55,7 +53,6 @@ export function generateMetadata(): Metadata {
       title,
       description,
       siteName: `${personal.name} Portfolio`,
-      images: [{ url: ogImage, width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: "summary_large_image",
@@ -63,7 +60,6 @@ export function generateMetadata(): Metadata {
       description,
       creator: socials?.twitter,
       site: socials?.twitter,
-      images: [{ url: ogImage, alt: `${personal.name} Portfolio` }],
     },
     icons: {
       icon: "/favicon.ico",
@@ -114,7 +110,7 @@ export default function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="light"
+          defaultTheme="system"
           enableSystem={false}
         >
           <main className="flex min-h-screen flex-col">{children}</main>

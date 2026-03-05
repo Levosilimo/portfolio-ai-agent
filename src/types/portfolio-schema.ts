@@ -2,7 +2,8 @@ import { z } from "zod";
 
 const isoDate = z
   .string()
-  .refine((s) => !Number.isNaN(Date.parse(s)), { message: "Invalid ISO date" }).describe("isoDate");
+  .refine((s) => !Number.isNaN(Date.parse(s)), { message: "Invalid ISO date" })
+  .describe("isoDate");
 
 const Url = z.url();
 const NonEmpty = z.string().min(1);
