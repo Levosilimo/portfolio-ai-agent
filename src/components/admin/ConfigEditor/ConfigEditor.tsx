@@ -433,7 +433,9 @@ function SchemaArrayField<TFieldValues extends FieldValues = FormData>({
     .replace(/^./, (str) => str.toUpperCase())
     .trim();
 
-  const error = getByPath(errors, path) as unknown as { message?: string } | undefined;
+  const error = getByPath(errors, path) as unknown as
+    | { message?: string }
+    | undefined;
 
   return (
     <div className="space-y-2">
@@ -1160,8 +1162,9 @@ export default function ConfigEditorWrapper() {
         />
       }
       {
-        //@ts-expect-error submit err
-        <form onSubmit={handleSubmit(onSubmit)}
+        <form
+          /*@ts-expect-error submit err*/
+          onSubmit={handleSubmit(onSubmit)}
           className="max-w-7xl mx-auto p-4 space-y-6"
         >
           {/* Header */}
@@ -1231,14 +1234,14 @@ export default function ConfigEditorWrapper() {
             <div className="flex gap-2">
               <button
                 type="button"
-                className={`px-4 py-2 rounded ${mode === "form" ? "bg-primary text-white" : "border"}`}
+                className={`px-4 py-2 rounded ${mode === "form" ? "bg-primary text-secondary" : "border"}`}
                 onClick={() => setMode("form")}
               >
                 Form
               </button>
               <button
                 type="button"
-                className={`px-4 py-2 rounded ${mode === "json" ? "bg-primary text-white" : "border"}`}
+                className={`px-4 py-2 rounded ${mode === "json" ? "bg-primary text-secondary" : "border"}`}
                 onClick={() => setMode("json")}
               >
                 JSON
@@ -1326,7 +1329,7 @@ export default function ConfigEditorWrapper() {
                 <h4 className="font-semibold mb-2">Visibility</h4>
                 <div className="flex gap-2">
                   <button className="flex-1 p-2 border rounded">Public</button>
-                  <button className="flex-1 p-2 border bg-primary text-white rounded">
+                  <button className="flex-1 p-2 border bg-primary text-secondary rounded">
                     Admin Only
                   </button>
                 </div>
@@ -1341,7 +1344,7 @@ export default function ConfigEditorWrapper() {
           {/* JSON Modal */}
           {jsonModal && (
             <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
-              <div className="bg-white rounded-lg w-full max-w-4xl max-h-[80vh] flex flex-col">
+              <div className="bg-background rounded-lg w-full max-w-4xl max-h-[80vh] flex flex-col">
                 <div className="flex justify-between items-center p-4 border-b">
                   <h4 className="font-semibold">Edit {jsonModal.path}</h4>
                   <div className="flex gap-2">

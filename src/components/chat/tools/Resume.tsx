@@ -48,7 +48,7 @@ export default function Resume({ config, onContactClick }: ResumeCardProps) {
 
         <button
           onClick={onContactClick}
-          className="flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-white font-semibold hover:bg-primary/90 transition"
+          className="flex items-center gap-2 rounded-xl bg-primary px-4 py-2 text-secondary font-semibold hover:bg-primary/90 transition"
         >
           <Mail className="h-5 w-5" />
           Contact Me

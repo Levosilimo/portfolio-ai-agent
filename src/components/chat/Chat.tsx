@@ -28,7 +28,7 @@ export default function Chat({ config, presetAnswers }: ChatProps) {
   const state = useChatState(config, presetAnswers);
 
   return (
-    <div className="h-screen flex flex-col bg-white">
+    <div className="h-screen flex flex-col bg-background">
       <div className="flex-shrink-0">
         <ChatHeader isOnline={!state.isUsingPregenerated} config={config} />
       </div>
@@ -43,7 +43,7 @@ export default function Chat({ config, presetAnswers }: ChatProps) {
         config={config}
         presetReplies={presetAnswers}
       />
-      <div className="flex-shrink-0 bg-white px-2 pt-3 md:px-0">
+      <div className="flex-shrink-0 bg-background px-2 pt-3 md:px-0">
         <div className="relative flex flex-col items-center gap-3 max-w-3xl mx-auto w-full">
           <QuickQuestions
             submitQuery={state.submitQuery}

@@ -23,7 +23,8 @@ const bubbleVariants = cva("flex items-end gap-2 w-full", {
 });
 
 export interface ChatBubbleProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof bubbleVariants> {}
 
 const ChatBubble = React.forwardRef<HTMLDivElement, ChatBubbleProps>(
@@ -73,7 +74,8 @@ const messageVariants = cva(
 );
 
 export interface ChatBubbleMessageProps
-  extends React.HTMLAttributes<HTMLDivElement>,
+  extends
+    React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof messageVariants> {
   isLoading?: boolean;
 }
@@ -97,8 +99,7 @@ ChatBubbleMessage.displayName = "ChatBubbleMessage";
 // ---------------------------------------------
 // ChatBubbleTimestamp
 // ---------------------------------------------
-export interface ChatBubbleTimestampProps
-  extends React.HTMLAttributes<HTMLDivElement> {
+export interface ChatBubbleTimestampProps extends React.HTMLAttributes<HTMLDivElement> {
   timestamp: string;
 }
 

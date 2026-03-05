@@ -63,8 +63,7 @@ type loadConfigSyncParams = {
 };
 
 export function loadConfigSync({
-  readCached,
-  enableCaching,
+  readCached
 }: loadConfigSyncParams): PortfolioConfig {
   if (_cachedConfig && readCached) return _cachedConfig;
 

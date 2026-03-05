@@ -54,7 +54,7 @@ export async function POST(req: Request): Promise<Response> {
     const result = streamText({
       model: google("gemini-2.5-flash-lite"),
       system: getParser(config).systemPrompt(),
-      messages: convertToModelMessages(cleanedMessages),
+      messages: await convertToModelMessages(cleanedMessages),
       tools,
       stopWhen: stepCountIs(2),
     });
